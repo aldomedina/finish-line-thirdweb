@@ -1,0 +1,15 @@
+$primary: #ccff00;
+$secondary: #181d18;
+
+$palettes: (
+  primary: (
+    base: $primary,
+  ),
+  secondary: (
+    base: $secondary,
+  ),
+);
+
+:export {
+  primary: $secondary;
+}

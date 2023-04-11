@@ -1,0 +1,46 @@
+@import "../../styles/mixins.scss";
+
+.btn {
+  color: inherit;
+  font-family: inherit;
+  transition: all 0.12s ease-in-out;
+  transform: translateY(0);
+  border-radius: 9999px;
+  &:active {
+    transform: translateY(5px);
+  }
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+.xl {
+}
+.lg {
+  font-size: 1.2rem;
+  padding: 1rem 1.5rem;
+}
+.md {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  @include respond-to("mobile") {
+    font-size: 1rem;
+  }
+}
+.outlined {
+  border: 1px solid;
+}
+.contained {
+  background-color: #27282a;
+  color: white;
+  &:hover {
+    background-color: #000;
+  }
+}
+.fullWidth {
+  width: 100%;
+}
