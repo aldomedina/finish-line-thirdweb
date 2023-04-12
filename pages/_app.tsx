@@ -10,6 +10,7 @@ import {
   safeWallet,
   paperWallet,
 } from "@thirdweb-dev/react";
+import { Toaster } from "react-hot-toast";
 
 if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
   throw new Error("You need to provide NEXT_PUBLIC_PROJECT_ID env variable");
