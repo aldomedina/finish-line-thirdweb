@@ -1,0 +1,22 @@
+@import "@/styles/mixins.scss";
+.gallery {
+  height: 100%;
+  padding: 4rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: auto;
+  @include respond-to("mobile") {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+.imageWrapper {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  &:hover {
+    transform: scale(0.95) translate3d(0, -2px, 0);
+  }
+}

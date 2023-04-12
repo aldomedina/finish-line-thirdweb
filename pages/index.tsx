@@ -11,6 +11,7 @@ import { contractAddress } from "@/lib/constants";
 import { BigNumber } from "ethers";
 import Icon from "@/components/Icon";
 import toast, { Toaster } from "react-hot-toast";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
   const [quantity, setQuantity] = useState<number>(1);
@@ -239,7 +240,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className={s.gallery}></section>
+        <section className={s.gallery}>
+          {collection?.length && <Gallery collection={collection} />}
+        </section>
       </main>
     </>
   );
