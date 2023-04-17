@@ -1,15 +1,16 @@
-$primary: #ccff00;
-$secondary: #181d18;
+$primary: #27282a;
+$bg: #f5f5f5;
 
 $palettes: (
   primary: (
     base: $primary,
   ),
-  secondary: (
-    base: $secondary,
+  bg: (
+    base: $bg,
   ),
 );
 
 :export {
-  primary: $secondary;
+  primary: $primary;
+  bg: $bg;
 }

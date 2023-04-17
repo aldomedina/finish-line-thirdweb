@@ -1,0 +1,67 @@
+@import "./mixins.scss";
+.hero {
+  background-color: color(bg, base);
+  display: flex;
+  border-bottom: 4px solid white;
+  height: 100vh;
+  @include respond-to("mobile") {
+    flex-direction: column;
+  }
+  .left,
+  .right {
+    height: 100%;
+    padding: 2rem;
+
+    @include respond-to("mobile") {
+      padding: 1rem;
+    }
+  }
+  .left {
+    flex: 5;
+    background: #fff;
+    display: grid;
+    place-items: center;
+  }
+  .right {
+    flex: 4;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 2rem;
+
+    @include respond-to("mobile") {
+      grid-template-rows: auto 1fr;
+    }
+    .heroContent {
+      align-self: end;
+
+      @include respond-to("mobile") {
+        display: flex;
+        align-items: flex-end;
+        gap: 2rem;
+      }
+      .tableWrapper {
+        max-width: 420px;
+        @include respond-to("mobile") {
+          flex: 1;
+        }
+      }
+
+      .name {
+        font-weight: normal;
+        font-size: 7rem;
+        margin-bottom: 2rem;
+        @include respond-to("mobile") {
+          font-size: 3rem;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.imageWrapper {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

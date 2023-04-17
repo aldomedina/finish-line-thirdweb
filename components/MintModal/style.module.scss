@@ -1,0 +1,59 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  .modal {
+    width: 500px;
+    background: white;
+    border-radius: 0.5rem;
+    .header {
+      padding: 1rem;
+      .title {
+        font-weight: normal;
+      }
+    }
+    .body {
+      min-height: 300px;
+      max-height: 50vh;
+      overflow-y: auto;
+      .loaderWrapper {
+        margin: 1rem 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .tokens {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-auto-rows: auto;
+
+        .token {
+          display: flex;
+          min-height: 250px;
+          .imageWrapper,
+          .content {
+            flex: 1;
+          }
+          .image {
+            height: 100%;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+          }
+        }
+      }
+    }
+    .bottom {
+      padding: 1rem;
+    }
+  }
+}

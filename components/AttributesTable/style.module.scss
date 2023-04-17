@@ -1,0 +1,21 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  .row {
+    border-bottom: 1px solid currentColor;
+    &:last-child {
+      border: none;
+    }
+    .cell {
+      padding: 0.5rem 0;
+      &:nth-child(2) {
+        text-align: right;
+        font-family: monospace;
+        font-size: 1rem;
+      }
+    }
+    .trait {
+      text-transform: uppercase;
+    }
+  }
+}

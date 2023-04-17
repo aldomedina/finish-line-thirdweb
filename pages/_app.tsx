@@ -10,7 +10,10 @@ import {
   safeWallet,
   paperWallet,
 } from "@thirdweb-dev/react";
+import { Sepolia, Goerli } from "@thirdweb-dev/chains";
+
 import { Toaster } from "react-hot-toast";
+import AppProvider from "@/containers/AppProvider";
 
 if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
   throw new Error("You need to provide NEXT_PUBLIC_PROJECT_ID env variable");
@@ -36,9 +39,11 @@ export default function App({ Component, pageProps }: AppProps) {
         walletConnectV1(),
         safeWallet(),
       ]}
-      activeChain={ChainId.Goerli}
+      activeChain={Sepolia} // SEPOLIA
     >
-      <Component {...pageProps} />
+      <AppProvider>
+        <Component {...pageProps} />
+      </AppProvider>
     </ThirdwebProvider>
   );
 }
