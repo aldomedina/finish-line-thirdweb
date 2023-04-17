@@ -1,8 +1,10 @@
+import Spinner from "@/components/Loader";
 import { contractAddress } from "@/lib/constants";
 import { useContract } from "@thirdweb-dev/react";
 import { NFT } from "@thirdweb-dev/sdk";
 import { BigNumber } from "ethers";
 import { createContext, useEffect, useMemo, useState } from "react";
+import Layout from "./Layout";
 
 export const AppContext = createContext<{
   collection: NFT[] | undefined;
@@ -54,8 +56,18 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     fetchNFTDropData();
   }, [contract]);
 
-  if (isLoading) return <div>loading...</div>;
-
+  if (isLoading)
+    return (
+      <div
+        style={{
+          height: "100%",
+          display: "grid",
+          placeItems: "center",
+        }}
+      >
+        <Spinner />
+      </div>
+    );
   return (
     <AppContext.Provider
       value={{
