@@ -8,9 +8,9 @@ import {
   walletConnect,
   safeWallet,
 } from "@thirdweb-dev/react";
-import { Sepolia, Goerli } from "@thirdweb-dev/chains";
 import { AnimatePresence } from "framer-motion";
 import AppProvider from "@/containers/AppProvider";
+import { activeChainId } from "@/lib/constants";
 
 if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
   throw new Error("You need to provide NEXT_PUBLIC_PROJECT_ID env variable");
@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
         walletConnectV1(),
         safeWallet(),
       ]}
-      activeChain={Sepolia} // SEPOLIA
+      activeChain={activeChainId} // SEPOLIA
     >
       <AppProvider>
         <AnimatePresence
