@@ -10,6 +10,7 @@ import { AppContext } from "@/containers/AppProvider";
 import Layout from "@/containers/Layout";
 import MintControls from "@/components/MintControls";
 import MintModal from "@/components/MintModal";
+import Spinner from "@/components/Loader";
 
 export default function Home() {
   const [isMinting, setIsMinting] = useState(false);
@@ -22,7 +23,7 @@ export default function Home() {
         <section className={s.hero}>
           <div className={s.left}>
             {isMinting ? (
-              "..."
+              <Spinner />
             ) : !!claimedSupply && collection?.length ? (
               <div
                 className={s.imageWrapper}
