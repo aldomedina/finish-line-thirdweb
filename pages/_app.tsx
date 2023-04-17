@@ -2,17 +2,14 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import {
   ThirdwebProvider,
-  ChainId,
   metamaskWallet,
   coinbaseWallet,
   walletConnectV1,
   walletConnect,
   safeWallet,
-  paperWallet,
 } from "@thirdweb-dev/react";
 import { Sepolia, Goerli } from "@thirdweb-dev/chains";
-
-import { Toaster } from "react-hot-toast";
+import { AnimatePresence } from "framer-motion";
 import AppProvider from "@/containers/AppProvider";
 
 if (!process.env.NEXT_PUBLIC_PROJECT_ID) {
@@ -42,7 +39,13 @@ export default function App({ Component, pageProps }: AppProps) {
       activeChain={Sepolia} // SEPOLIA
     >
       <AppProvider>
-        <Component {...pageProps} />
+        <AnimatePresence
+          mode="wait"
+          initial={false}
+          onExitComplete={() => window.scrollTo(0, 0)}
+        >
+          <Component {...pageProps} />
+        </AnimatePresence>
       </AppProvider>
     </ThirdwebProvider>
   );
