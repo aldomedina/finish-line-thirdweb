@@ -7,8 +7,6 @@ import s from "@/styles/Home.module.scss";
 const UI = () => {
   const ref = useRef<HTMLDivElement>(null);
   const vals = useControls({
-    threshold: { value: 0, min: 0, max: 1 },
-    offset: { value: 0, min: 0, max: 1 },
     direction: { value: 0, min: -1, max: 1 },
     image: { image: undefined },
     "Create piece": button(async (get) => {
@@ -24,13 +22,9 @@ const UI = () => {
         return;
       }
 
-      const threshold = get("threshold");
-      const offset = get("offset");
       const direction = get("direction");
 
       const params = {
-        threshold,
-        offset,
         direction,
         url: image,
       };
